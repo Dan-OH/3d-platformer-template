@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b1ot6gn6tms6h"]
+[gd_scene load_steps=15 format=3 uid="uid://b1ot6gn6tms6h"]
 
 [ext_resource type="Script" uid="uid://b5ecua1qxlsek" path="res://lesson_reference/player_3d_template.gd" id="1_dpokc"]
 [ext_resource type="PackedScene" uid="uid://prh35jb6tjtd" path="res://player/sophia_skin/sophia_skin.tscn" id="2_4dj54"]
@@ -43,6 +43,12 @@ height = 0.3
 radial_segments = 8
 rings = 8
 
+[sub_resource type="BoxMesh" id="BoxMesh_jgkwk"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jgkwk"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jgkwk"]
+
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_h1hkf"]
 length = 0.5
 slide_on_slope = true
@@ -71,6 +77,20 @@ lifetime = 0.7
 explosiveness = 0.05
 process_material = SubResource("ParticleProcessMaterial_tqdcj")
 draw_pass_1 = SubResource("SphereMesh_vpbss")
+
+[node name="Net" type="MeshInstance3D" parent="SophiaSkin"]
+unique_name_in_owner = true
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, -0.40588954, 0.5349637, -0.013373345)
+mesh = SubResource("BoxMesh_jgkwk")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SophiaSkin/Net"]
+transform = Transform3D(1, 0, 0, 0, 2.8688605, 0, 0, 0, 1, 0, 2.5094159, 0.041661292)
+mesh = SubResource("CapsuleMesh_jgkwk")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="SophiaSkin/Net"]
+transform = Transform3D(3.033, 0, 0, 0, -1.4433892e-08, -3.033, 0, 0.33020896, -1.3257664e-07, 0, 6.3593397, 0)
+mesh = SubResource("CylinderMesh_jgkwk")
 
 [node name="LandingSound" type="AudioStreamPlayer3D" parent="."]
 unique_name_in_owner = true

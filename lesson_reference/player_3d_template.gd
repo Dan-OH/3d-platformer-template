@@ -32,6 +32,7 @@ var ground_height := 0.0
 var _gravity := -30.0
 var _was_on_floor_last_frame := true
 var _camera_input_direction := Vector2.ZERO
+var _camera_control := true
 
 ## The last movement or aim direction input by the player. We use this to orient
 ## the character model.
@@ -45,6 +46,7 @@ var _camera_input_direction := Vector2.ZERO
 @onready var _landing_sound: AudioStreamPlayer3D = %LandingSound
 @onready var _jump_sound: AudioStreamPlayer3D = %JumpSound
 @onready var _dust_particles: GPUParticles3D = %DustParticles
+@onready var _net: MeshInstance3D = %Net
 
 
 func _ready() -> void:
@@ -67,6 +69,21 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("left_click"):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
+func _process(delta):
+	if Input.is_action_pressed("right_trigger"):
+		_camera_control = false
+		_net.visible = true
+		
+		var direction = Input.get_vector("camera_left", "camera_right", "camera_up", "camera_down")
+		if direction.length() >= 0.2:
+			_net.rotation.y = atan2(direction.x, direction.y)
+			_net.rotation.x = direction.length() * -2
+		else:
+			_net.rotation.y = 0
+			_net.rotation.x = 0
+	else:
+		_camera_control = true
+		_net.visible = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	var player_is_using_mouse := (
@@ -85,7 +102,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Controller camera
 	var axis_vector = Input.get_vector("camera_left", "camera_right", "camera_up", "camera_down")
-	if axis_vector.length() >= 0.2:
+	if axis_vector.length() >= 0.2 and _camera_control:
 		_camera_pivot.rotation.y += deg_to_rad(-axis_vector.x * 2)
 		_camera_pivot.rotation.x -= deg_to_rad(-axis_vector.y * 2)
 
