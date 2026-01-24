@@ -76,7 +76,7 @@ func _process(delta):
 		
 		var direction = Input.get_vector("camera_left", "camera_right", "camera_up", "camera_down")
 		if direction.length() >= 0.2:
-			_net.rotation.y = atan2(direction.x, direction.y)
+			_net.rotation.y = atan2(direction.x, direction.y) + _camera_pivot.rotation.y - _skin.global_rotation.y
 			_net.rotation.x = direction.length() * -2
 		else:
 			_net.rotation.y = 0
