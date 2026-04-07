@@ -126,7 +126,7 @@ func _physics_process(delta: float) -> void:
 		
 		var direction = Input.get_vector("camera_left", "camera_right", "camera_up", "camera_down")
 		if direction.length() >= 0.2:
-			_skin.global_rotation.y = lerp_angle(_skin.rotation.y, _camera_pivot.rotation.y - atan2(direction.x, -direction.y), 20 * delta)
+			_skin.global_rotation.y = _camera_pivot.rotation.y - atan2(direction.x, -direction.y)
 			_net.rotation.x = -4.5
 			_netmode = true
 			velocity.x = 0.0
