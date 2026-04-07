@@ -33,6 +33,7 @@ var _gravity := -30.0
 var _was_on_floor_last_frame := true
 var _camera_input_direction := Vector2.ZERO
 var _camera_control := true
+var _netmode := false
 
 ## The last movement or aim direction input by the player. We use this to orient
 ## the character model.
@@ -69,22 +70,6 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("left_click"):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-func _process(delta):
-	if Input.is_action_pressed("right_trigger"):
-		_camera_control = false
-		_net.visible = true
-		
-		var direction = Input.get_vector("camera_left", "camera_right", "camera_up", "camera_down")
-		if direction.length() >= 0.2:
-			_net.rotation.y = atan2(direction.x, direction.y) + _camera_pivot.rotation.y - _skin.global_rotation.y
-			_net.rotation.x = direction.length() * -2
-		else:
-			_net.rotation.y = 0
-			_net.rotation.x = 0
-	else:
-		_camera_control = true
-		_net.visible = false
-
 func _unhandled_input(event: InputEvent) -> void:
 	var player_is_using_mouse := (
 		event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED
@@ -118,19 +103,42 @@ func _physics_process(delta: float) -> void:
 	# To not orient the character too abruptly, we filter movement inputs we
 	# consider when turning the skin. This also ensures we have a normalized
 	# direction for the rotation basis.
-	if move_direction.length() > 0.2:
+	if move_direction.length() > 0.2 && !_netmode:
 		_last_input_direction = move_direction.normalized()
-	var target_angle := Vector3.BACK.signed_angle_to(_last_input_direction, Vector3.UP)
-	_skin.global_rotation.y = lerp_angle(_skin.rotation.y, target_angle, rotation_speed * delta)
+		var target_angle := Vector3.BACK.signed_angle_to(_last_input_direction, Vector3.UP)
+		_skin.global_rotation.y = lerp_angle(_skin.rotation.y, target_angle, rotation_speed * delta)
 
 	# We separate out the y velocity to only interpolate the velocity in the
 	# ground plane, and not affect the gravity.
 	var y_velocity := velocity.y
 	velocity.y = 0.0
+	
+	#if !_netmode:
 	velocity = velocity.move_toward(move_direction * move_speed, acceleration * delta)
+		
 	if is_equal_approx(move_direction.length_squared(), 0.0) and velocity.length_squared() < stopping_speed:
 		velocity = Vector3.ZERO
 	velocity.y = y_velocity + _gravity * delta
+	
+	if Input.is_action_pressed("right_trigger"):
+		_camera_control = false
+		_net.visible = true
+		
+		var direction = Input.get_vector("camera_left", "camera_right", "camera_up", "camera_down")
+		if direction.length() >= 0.2:
+			_skin.global_rotation.y = lerp_angle(_skin.rotation.y, _camera_pivot.rotation.y - atan2(direction.x, -direction.y), 20 * delta)
+			_net.rotation.x = -4.5
+			_netmode = true
+			velocity.x = 0.0
+			velocity.z = 0.0
+		else:
+			_net.rotation.x = 0
+			_netmode = false
+	else:
+		_camera_control = true
+		_net.visible = true
+		_netmode = false
+		_net.rotation.x = 0
 	
 	if is_on_floor():
 		air_jump_counter = 0
@@ -153,7 +161,7 @@ func _physics_process(delta: float) -> void:
 	elif not is_on_floor() and velocity.y < 0:
 		_skin.fall()
 	elif is_on_floor():
-		if ground_speed > 0.0:
+		if ground_speed > 0.0 && !_netmode:
 			_skin.move()
 		else:
 			_skin.idle()
@@ -164,4 +172,6 @@ func _physics_process(delta: float) -> void:
 		_landing_sound.play()
 
 	_was_on_floor_last_frame = is_on_floor()
+
 	move_and_slide()
+	
