@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cnedxfn2pxh2t"]
+[gd_scene load_steps=22 format=3 uid="uid://cnedxfn2pxh2t"]
 
 [ext_resource type="Shader" uid="uid://cdlt3ujrpad32" path="res://level/sky_with_stars.tres" id="1_hwp5q"]
 [ext_resource type="PackedScene" uid="uid://7s1esfbldf1" path="res://level/cactus/cactus_small_4.tscn" id="1_oaaa3"]
@@ -11,6 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://cip1awte2184j" path="res://level/cactus/cactus_small_2.tscn" id="6_ona4a"]
 [ext_resource type="Material" uid="uid://da188d7yrcfr8" path="res://level/platforms.tres" id="7_njuj4"]
 [ext_resource type="PackedScene" uid="uid://c6uew1wfpkt16" path="res://level/interactable/flag/flag_3d.tscn" id="8_kebk2"]
+[ext_resource type="PackedScene" uid="uid://d02e4y0fuwtn5" path="res://alien/alien_controller.tscn" id="12_rhqlf"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_xii2b"]
+vertices = PackedVector3Array(-2.5, 0.5, -31.5, 2.5, 0.5, -31.5, 2.5, 0.5, -33.5, 3.5, 0.75, -33.5, 3.5, 2.5, -27.25, 6.5, 2.5, -27.25, 6.5, 0.5, -41.5, 3.5, 2.5, -31, 6.5, 2.5, -30.099998, 6.5, 0.5, -34.375, 5.2450256, 2.25, -31.503025, -2.5, 0.5, -41.5, 6.5, 0.5, -24.5, 6.5, 0.5, -26.25, 2.5, 0.5, -26.5, -2.5, 0.5, -24.5, 3.75, 0.5, -30.75, 3.75, 0.5, -27.5, 6.5, 0.5, -27.5, 6.5, 0.5, -30.75, -50, 9.75, -18.25, -50, 9.75, -21.5, -51.5, 10.5, -21.75, -51.5, 10.5, -18, -51.75, 10.5, -15.5, -51.75, 10.5, -24.5, -58.75, 10.5, -24.5, -58.75, 10.5, -15.5, -36, 8.5, -23.5, -36, 8.5, -16.5, -32, 8.5, -16.5, -32, 8.5, -23.5, -27, 8.5, -23.5, -27, 8.5, -16.5, -23, 8.5, -16.5, -23, 8.5, -23.5, -10.75, 7.75, -18.5, -10.75, 7.75, -21.5, -12.5, 8.5, -21.75, -12.5, 8.5, -18.25, -17.5, 8.5, -23.5, -17.5, 8.5, -16.5, -12.5, 8.5, -23.5, -12.5, 8.5, -16.5, -11.25, 6.5, -23.5, -11.25, 6.5, -22.5, -9.5, 6.5, -22.5, -9.25, 6.5, -17.5, -11.25, 6.5, -17.25, -11.25, 6.5, -16.5, -0.5, 6.5, -16.5, -9.5, 6.75, -18.5, -9.5, 6.75, -21.5, -0.5, 6.5, -20.25, 6.5, 4.5, -20.5, 6.5, 4.5, -23.5, 2.2999992, 4.75, -20.35, 3.5416641, 4.5, -23.5, -0.8958359, 6.5, -23.5, 2.250061, 4.75, -22.520065, -2.5, 0.5, -23.25, -2.5, 0.5, -20.5, -0.5, 0.5, -20.5, -0.5, 0.5, -23.25, 0.75, 0.5, -23.25, 0.75, 0.5, -20.5, 6.5, 0.5, -20.5, 6.5, 0.5, -23.25, -50.5, 8.5, -23, -50.5, 8.5, -22.5, -48.75, 8.5, -22.5, -40.75, 8.5, -23, -48.75, 8.75, -18.25, -48.75, 8.75, -21.5, -40.75, 8.5, -17, -48.75, 8.5, -17.25, -50.5, 8.5, -17)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(9, 3, 6), PackedInt32Array(3, 10, 7), PackedInt32Array(7, 8, 4), PackedInt32Array(4, 8, 5), PackedInt32Array(8, 10, 9), PackedInt32Array(9, 10, 3), PackedInt32Array(10, 8, 7), PackedInt32Array(0, 11, 2), PackedInt32Array(2, 11, 6), PackedInt32Array(6, 3, 2), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 15), PackedInt32Array(1, 14, 0), PackedInt32Array(0, 14, 15), PackedInt32Array(19, 18, 16), PackedInt32Array(16, 18, 17), PackedInt32Array(20, 23, 21), PackedInt32Array(21, 23, 22), PackedInt32Array(23, 24, 22), PackedInt32Array(22, 24, 25), PackedInt32Array(25, 24, 27), PackedInt32Array(25, 27, 26), PackedInt32Array(31, 30, 28), PackedInt32Array(28, 30, 29), PackedInt32Array(35, 34, 32), PackedInt32Array(32, 34, 33), PackedInt32Array(36, 39, 37), PackedInt32Array(37, 39, 38), PackedInt32Array(39, 41, 38), PackedInt32Array(38, 41, 40), PackedInt32Array(40, 42, 38), PackedInt32Array(39, 43, 41), PackedInt32Array(46, 45, 44), PackedInt32Array(48, 47, 49), PackedInt32Array(49, 47, 50), PackedInt32Array(52, 51, 37), PackedInt32Array(37, 51, 36), PackedInt32Array(44, 58, 46), PackedInt32Array(46, 58, 53), PackedInt32Array(53, 59, 56), PackedInt32Array(56, 57, 54), PackedInt32Array(54, 57, 55), PackedInt32Array(57, 59, 58), PackedInt32Array(58, 59, 53), PackedInt32Array(59, 57, 56), PackedInt32Array(52, 47, 51), PackedInt32Array(52, 46, 47), PackedInt32Array(47, 46, 53), PackedInt32Array(47, 53, 50), PackedInt32Array(63, 62, 60), PackedInt32Array(60, 62, 61), PackedInt32Array(67, 66, 64), PackedInt32Array(64, 66, 65), PackedInt32Array(69, 68, 70), PackedInt32Array(70, 68, 71), PackedInt32Array(73, 72, 21), PackedInt32Array(21, 72, 20), PackedInt32Array(72, 73, 74), PackedInt32Array(74, 73, 71), PackedInt32Array(75, 74, 76), PackedInt32Array(73, 70, 71), PackedInt32Array(74, 75, 72)]
+geometry_source_geometry_mode = 1
+geometry_source_group_name = &"geometry"
 
 [sub_resource type="Curve" id="Curve_k4wis"]
 _data = [Vector2(0.331719, 0.0391753), 0.0, 0.0, 0, 0, Vector2(0.697336, 1), 0.51276, 0.0, 0, 0]
@@ -32,19 +39,19 @@ cellular_distance_function = 2
 width = 1024
 height = 1024
 generate_mipmaps = false
-seamless = true
-color_ramp = SubResource("Gradient_4p0vt")
 noise = SubResource("FastNoiseLite_jnnrx")
+color_ramp = SubResource("Gradient_4p0vt")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g8ud2"]
 shader = ExtResource("1_hwp5q")
 shader_parameter/top_color = Color(0.288469, 0.182916, 1, 1)
 shader_parameter/bottom_color = Color(1, 0.46805, 0, 1)
-shader_parameter/moon_direction = Vector3(-1.095, 0.68, 1)
-shader_parameter/moon_size = 0.045
 shader_parameter/gradient_curve = SubResource("CurveTexture_moxc7")
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_83fre")
 shader_parameter/moon_texture = ExtResource("2_kb37w")
+shader_parameter/moon_direction = Vector3(-1.095, 0.68, 1)
+shader_parameter/moon_size = 0.045
 
 [sub_resource type="Sky" id="Sky_0h0bb"]
 sky_material = SubResource("ShaderMaterial_g8ud2")
@@ -79,6 +86,9 @@ volumetric_fog_albedo = Color(0.843137, 0.737255, 0.329412, 1)
 volumetric_fog_emission = Color(0.843137, 0.737255, 0.329412, 1)
 
 [node name="Level" type="Node3D"]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_xii2b")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5pwhg")
@@ -116,25 +126,6 @@ transform = Transform3D(-2.0693, 0.241202, -1.93468, 0.670546, 2.7372, -0.375951
 [node name="Cactus_Small_11" parent="." instance=ExtResource("6_ona4a")]
 transform = Transform3D(-2.0693, 0.241202, -1.93468, -0.140842, 2.7954, 0.499148, 1.94458, 0.459138, -2.02263, 6.26628, 4.19006, -20.6183)
 
-[node name="CSGPolygon3D8" type="CSGPolygon3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -48.25, 8, -22)
-use_collision = true
-polygon = PackedVector2Array(0, 0, 3, 2, 3, 0)
-depth = 4.0
-material = ExtResource("7_njuj4")
-
-[node name="CSGBox3D8" type="CSGBox3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -55.25, -4.5, -20)
-material_override = ExtResource("7_njuj4")
-use_collision = true
-size = Vector3(8, 29, 10)
-
-[node name="CSGBox3D9" type="CSGBox3D" parent="."]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -45.75, -5.5, -20)
-material_override = ExtResource("7_njuj4")
-use_collision = true
-size = Vector3(7, 27, 11)
-
 [node name="Flag3D" parent="." instance=ExtResource("8_kebk2")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -55.25, 10, -20)
 
@@ -156,80 +147,104 @@ transform = Transform3D(-3.02021, 0.729762, 0.355604, 0.681151, 3.02339, -0.4193
 [node name="Cactus_Small_9" parent="." instance=ExtResource("6_ona4a")]
 transform = Transform3D(-2.99633, 0.231602, -1.56352, 0.381736, 3.35793, -0.234152, 1.5338, -0.383288, -2.99613, -47.7949, 8.42468, -22.8013)
 
-[node name="CSGBox3D10" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 7.5, -20)
-material_override = ExtResource("7_njuj4")
-use_collision = true
-size = Vector3(5, 1, 8)
-
-[node name="CSGBox3D11" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 7.5, -20)
-material_override = ExtResource("7_njuj4")
-use_collision = true
-size = Vector3(5, 1, 8)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -9.5, -31)
-material_override = ExtResource("7_njuj4")
-use_collision = true
-size = Vector3(10, 19, 22)
-
 [node name="Cactus_Tall_3" parent="." instance=ExtResource("3_b7ara")]
 transform = Transform3D(-0.363066, -0.101082, 3.01856, -0.727051, 2.95381, 0.0114629, -2.93144, -0.720079, -0.376708, -16.8351, 6.30984, -22.6841)
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+[node name="MapMeshes" type="Node3D" parent="." groups=["geometry"]]
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="MapMeshes"]
 material_override = ExtResource("7_njuj4")
 use_collision = true
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -6.5, -20)
+[node name="CSGBox3D4" type="CSGBox3D" parent="MapMeshes/CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -29)
 material_override = ExtResource("7_njuj4")
 use_collision = true
-size = Vector3(12, 25, 8)
+size = Vector3(4, 2, 4)
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -5.5, -20)
-material_override = ExtResource("7_njuj4")
-use_collision = true
-size = Vector3(6, 27, 8)
-
-[node name="CSGPolygon3D9" type="CSGPolygon3D" parent="CSGCombiner3D"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -9, 6, -22)
+[node name="CSGPolygon3D6" type="CSGPolygon3D" parent="MapMeshes/CSGCombiner3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 0, -34)
 use_collision = true
 polygon = PackedVector2Array(0, 0, 3, 2, 3, 0)
 depth = 4.0
 material = ExtResource("7_njuj4")
 
-[node name="CSGCombiner" type="CSGCombiner3D" parent="."]
+[node name="CSGCombiner" type="CSGCombiner3D" parent="MapMeshes"]
 material_override = ExtResource("7_njuj4")
 use_collision = true
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner"]
+[node name="CSGBox3D5" type="CSGBox3D" parent="MapMeshes/CSGCombiner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 2, -22)
 material_override = ExtResource("7_njuj4")
 use_collision = true
 size = Vector3(7, 4, 4)
 
-[node name="CSGPolygon3D7" type="CSGPolygon3D" parent="CSGCombiner"]
+[node name="CSGPolygon3D7" type="CSGPolygon3D" parent="MapMeshes/CSGCombiner"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 4, -24)
 use_collision = true
 polygon = PackedVector2Array(0, 0, 3, 2, 3, 0)
 depth = 4.0
 material = ExtResource("7_njuj4")
 
-[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="."]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="MapMeshes"]
 material_override = ExtResource("7_njuj4")
 use_collision = true
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -29)
+[node name="CSGBox3D6" type="CSGBox3D" parent="MapMeshes/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -6.5, -20)
 material_override = ExtResource("7_njuj4")
 use_collision = true
-size = Vector3(4, 2, 4)
+size = Vector3(12, 25, 8)
 
-[node name="CSGPolygon3D6" type="CSGPolygon3D" parent="CSGCombiner3D2"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 0, -34)
+[node name="CSGBox3D7" type="CSGBox3D" parent="MapMeshes/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -5.5, -20)
+material_override = ExtResource("7_njuj4")
+use_collision = true
+size = Vector3(6, 27, 8)
+
+[node name="CSGPolygon3D9" type="CSGPolygon3D" parent="MapMeshes/CSGCombiner3D"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -9, 6, -22)
 use_collision = true
 polygon = PackedVector2Array(0, 0, 3, 2, 3, 0)
 depth = 4.0
 material = ExtResource("7_njuj4")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="MapMeshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -9.5, -31)
+material_override = ExtResource("7_njuj4")
+use_collision = true
+size = Vector3(10, 19, 22)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="MapMeshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 7.5, -20)
+material_override = ExtResource("7_njuj4")
+use_collision = true
+size = Vector3(5, 1, 8)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="MapMeshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 7.5, -20)
+material_override = ExtResource("7_njuj4")
+use_collision = true
+size = Vector3(5, 1, 8)
+
+[node name="CSGPolygon3D8" type="CSGPolygon3D" parent="MapMeshes"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -48.25, 8, -22)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 3, 2, 3, 0)
+depth = 4.0
+material = ExtResource("7_njuj4")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="MapMeshes"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -55.25, -4.5, -20)
+material_override = ExtResource("7_njuj4")
+use_collision = true
+size = Vector3(8, 29, 10)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="MapMeshes"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -45.75, -5.5, -20)
+material_override = ExtResource("7_njuj4")
+use_collision = true
+size = Vector3(7, 27, 11)
+
+[node name="AlienController" parent="." instance=ExtResource("12_rhqlf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8762264, 0.0059083463, -26.782131)

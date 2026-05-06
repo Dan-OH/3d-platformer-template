@@ -118,6 +118,7 @@ func _physics_process(delta: float) -> void:
 		
 	if is_equal_approx(move_direction.length_squared(), 0.0) and velocity.length_squared() < stopping_speed:
 		velocity = Vector3.ZERO
+	
 	velocity.y = y_velocity + _gravity * delta
 	
 	if Input.is_action_pressed("right_trigger"):

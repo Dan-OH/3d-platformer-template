@@ -41,6 +41,11 @@ version_control/autoload_on_startup=true
 
 enabled=PackedStringArray("res://addons/gdquest_colorpicker_presets/plugin.cfg")
 
+[global_group]
+
+geometry=""
+player=""
+
 [input]
 
 move_up={
