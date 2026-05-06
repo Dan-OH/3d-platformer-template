@@ -130,8 +130,10 @@ func _physics_process(delta: float) -> void:
 			_skin.global_rotation.y = _camera_pivot.rotation.y - atan2(direction.x, -direction.y)
 			_net.rotation.x = -4.5
 			_netmode = true
-			velocity.x = 0.0
-			velocity.z = 0.0
+			
+			if is_on_floor():
+				velocity.x = 0.0
+				velocity.z = 0.0
 		else:
 			_net.rotation.x = 0
 			_netmode = false
