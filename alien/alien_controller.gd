@@ -9,8 +9,6 @@ var _gravity := -30.0
 
 func _ready() -> void:
 	target = get_tree().get_first_node_in_group("player")
-	#velocity = Vector3.ZERO
-	#set_physics_process(true)
 	nav_agent.velocity_computed.connect(_on_velocity_computed)
 
 func _physics_process(delta: float) -> void:
